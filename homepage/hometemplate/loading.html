@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Screen</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        .aurora {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(76, 175, 80, 0.4) 0%, rgba(76, 175, 80, 0) 30%),
+                radial-gradient(circle at 90% 90%, rgba(156, 39, 176, 0.4) 0%, rgba(156, 39, 176, 0) 30%);
+            opacity: 1;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            z-index: 2;
+            position: relative;
+        }
+        p {
+            font-size: 1.2em;
+            margin-top: 0;
+            z-index: 2;
+            position: relative;
+        }
+        .loader {
+            width: 50px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: 
+                radial-gradient(farthest-side,#e91e63 94%,#0000) top/8px 8px no-repeat,
+                conic-gradient(#0000 30%,#e91e63);
+            -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+            mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+            animation: l13 1s infinite linear;
+            margin-bottom: 20px;
+            z-index: 2;
+            position: relative;
+        }
+        @keyframes l13{ 
+            100%{transform: rotate(1turn)}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="aurora"></div>
+        <div class="loader"></div>
+        <h1>Getting Ready to Bring Your Look to Life...</h1>
+        <p>Hold on while we load your AR experience!</p>
+    </div>
+</body>
+</html>

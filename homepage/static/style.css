@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+nav,
+    h1, h2, h3, h4, h5, h6,
+    .text-xl, .text-2xl, .text-3xl, .text-4xl, .text-5xl {
+        font-family: 'League Spartan', sans-serif;
+    }
+
+    /* Optionally, you can set it as the default font for the entire body */
+    body {
+        font-family: 'League Spartan', sans-serif;
+    }
+
+    
+@media (max-width: 768px) {
+    .mobile-section {
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+    .mobile-section img {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 1.5rem;
+    }
+    .mobile-section h1, .mobile-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    .mobile-section p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    .mobile-section button {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+    .mobile-section ol, .mobile-section ul {
+        text-align: left;
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .mobile-section .flex {
+        justify-content: center;
+    }
+}
+
+@layer components {
+    .custom-button {
+      @apply bg-gradient-to-r from-[#FF8C00] to-[#FF1493] text-white font-bold py-3 px-6 rounded-lg text-lg uppercase tracking-wide shadow-md transition-all duration-300 ease-in-out;
+    }
+  
+    .custom-button:hover {
+      @apply transform -translate-y-1 shadow-lg;
+    }
+  
+    .custom-button:active {
+      @apply transform translate-y-0.5;
+    }
+  }
+
+button {
+  background: linear-gradient(to right, #FF6B00, #FF009E);
+  color: white;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.custom-button,
+button.custom-button {
+  background: linear-gradient(to right, #FF6B00, #FF009E);
+  color: white;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.custom-button:hover,
+button.custom-button:hover {
+  transform: scale(1.05);
+}
+
+.custom-button:active,
+button.custom-button:active {
+  transform: scale(0.95);
+}
+
+
+    #mobile-menu {
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%);
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 80%; /* Adjust as needed */
+        max-width: 300px; /* Adjust as needed */
+        background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+        backdrop-filter: blur(10px); /* Glassmorphic effect */
+        z-index: 50;
+    }
+
+    #mobile-menu:not(.translate-x-full) {
+        transform: translateX(0%);
+    }
+
+    .mobile-nav-item {
+        display: block;
+        padding: 1rem;
+        color: white;
+        font-size: 1.2rem;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+    }
+
+    .mobile-nav-item:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Style for close button */
+    #close-mobile-menu {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Debug info styles */
+    #debug-info {
+        position: fixed;
+        bottom: 1rem;
+        left: 1rem;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 0.5rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        z-index: 60;
+    }
+
+#mobile-menu {
+    transition: transform 0.3s ease-in-out;
+}
+
+#mobile-menu.translate-x-full {
+    transform: translateX(100%);
+}
+
+.mobile-nav-item {
+    transition: color 0.2s ease;
+}
+
+.mobile-nav-item:hover {
+    color: #ec4899; /* Tailwind's pink-500 */
+}
+
+/* Add this to your existing CSS */
+
+.nav-item {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.nav-item.active::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Remove this rule to keep text color consistent */
+/* .nav-item.active {
+    color: #FF6B00;
+} */

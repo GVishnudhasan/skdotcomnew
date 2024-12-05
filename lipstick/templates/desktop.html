@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR Makeup Experience</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .aurora {
+        background: radial-gradient(
+            circle at 10% 10%,
+            rgba(76, 175, 80, 0.4) 0%,
+            rgba(76, 175, 80, 0) 30%
+          ),
+          radial-gradient(
+            circle at 90% 90%,
+            rgba(156, 39, 176, 0.4) 0%,
+            rgba(156, 39, 176, 0) 30%
+          );
+      }
+
+      .hidden-video {
+        display: none;
+      }
+    </style>
+
+    <!-- MediaPipe Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body class="bg-gray-950 text-white min-h-screen font-sans overflow-y-auto">
+    <div class="aurora min-h-screen w-full">
+      <!-- Main container with responsive layout -->
+      <div
+        class="relative flex flex-col items-center justify-center min-h-screen w-full max-w-6xl overflow-y-auto md:flex-row"
+      >
+        <!-- Camera Section with centered title on mobile -->
+        <div
+          class="relative w-full md:w-1/2 lg:w-3/5 mb-4 md:mb-0 flex flex-col items-center"
+        >
+          <div class="w-full md:hidden text-center mb-4">
+            <h1 class="text-3xl font-bold">Lipstick Try On</h1>
+          </div>
+          <canvas
+            class="output_canvas w-full h-64 md:h-96 rounded-lg shadow-lg hidden-video"
+          ></canvas>
+          <video class="input_video hidden"></video>
+
+          <!-- Loading State -->
+          <div
+            id="loadingDiv"
+            class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50"
+          >
+            <p id="loadingText" class="text-2xl text-red-500">
+              Camera is loading...
+            </p>
+          </div>
+        </div>
+
+        <!-- Filters and Options section -->
+        <div
+          class="z-20 w-full md:w-1/2 lg:w-2/5 md:ml-8 flex flex-col items-start space-y-4 overflow-y-auto p-4"
+        >
+          <!-- Lipstick Color Selection with Horizontal Scroll -->
+          <!-- <div class="w-full mb-4">
+            <p class="text-lg mb-2">Select Lipstick Color:</p>
+            <div
+              id="lipstick-root"
+              class="flex space-x-2 overflow-x-auto pb-2 w-full"
+            >
+              {% for col in colours_funcs %}
+              <button
+                type="button"
+                class="rounded-full w-12 h-12 border-2 border-white cursor-pointer"
+                style="{{ col.style }}"
+                onclick="{{ col.func }}"
+              ></button>
+              {% endfor %}
+            </div>
+          </div> -->
+          <div class="w-full mb-4">
+            <p class="text-lg mb-2">Select Lipstick Color:</p>
+            <div
+              id="lipstick-root"
+              class="flex space-x-2 overflow-x-auto pb-2 w-full"
+            >
+              {% for col in colours_funcs %}
+              <a
+                href="#"
+                class="rounded-full w-12 h-12 border-2 border-white cursor-pointer"
+                style="{{ col.style }}"
+                onclick="{{ col.func }}"
+              ></a>
+              {% endfor %}
+            </div>
+          </div>
+
+          <!-- Other Filters (Lipstick, Foundation, Jewellery) -->
+          <p class="text-xl mb-6">
+            Would you like to experience these as well?
+          </p>
+          <div
+            class="flex items-center bg-white bg-opacity-10 p-3 rounded-lg cursor-pointer hover:bg-opacity-20 transition-colors w-full"
+            onclick="applyFoundation()"
+          >
+            <img
+              src="{{ foundation_icon }}"
+              alt="Foundation"
+              class="w-8 h-8 mr-3"
+            />
+            <span>Foundation</span>
+          </div>
+          <div
+            class="flex items-center bg-white bg-opacity-10 p-3 rounded-lg cursor-pointer hover:bg-opacity-20 transition-colors w-full"
+            onclick="applyBlush()"
+          >
+            <img src="{{ blush_icon }}" alt="Blush" class="w-8 h-8 mr-3" />
+            <span>Blush</span>
+          </div>
+          <div
+            class="flex items-center bg-white bg-opacity-10 p-3 rounded-lg cursor-pointer hover:bg-opacity-20 transition-colors w-full"
+            onclick="applyJewelry()"
+          >
+            <img src="{{ jewelry_icon }}" alt="Jewelry" class="w-8 h-8 mr-3" />
+            <span>Jewellery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Include Script -->
+    <script src="{{ url_for('lipstick.static', filename='script/lip-mesh.js') }}"></script>
+    <script>
+      function applyFoundation() {
+        console.log("Applying Foundation filter");
+        window.location.href = "/foundation";
+      }
+
+      function applyBlush() {
+        console.log("Applying Blush filter");
+        window.location.href = "/blush";
+      }
+
+      function applyJewelry() {
+        console.log("Applying jwellery filter");
+        window.location.href = "/jwellery";
+      }
+    </script>
+    <!-- <script src="{{ url_for('ornaments.static', filename='script/mesh-ornaments.js') }}"></script> -->
+  </body>
+</html>

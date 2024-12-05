@@ -1,0 +1,10 @@
+service:
+
+  lipstick:
+    colors:
+      - '#8d1810'
+      - '#58111b'
+
+  jwellery:
+    images:
+      - https://mediapipe-spotkwik.s3.ap-south-1.amazonaws.com/jwellary/1.png

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR Makeup Experience</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .aurora {
+        background: radial-gradient(
+            circle at 10% 10%,
+            rgba(76, 175, 80, 0.4) 0%,
+            rgba(76, 175, 80, 0) 30%
+          ),
+          radial-gradient(
+            circle at 90% 90%,
+            rgba(156, 39, 176, 0.4) 0%,
+            rgba(156, 39, 176, 0) 30%
+          );
+      }
+
+      .hidden-video {
+        display: none;
+      }
+    </style>
+
+    <!-- MediaPipe Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/GLTFLoader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mediapipe-camera-utils/0.0.5/camera_utils.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.115/build/three.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.115/examples/js/loaders/GLTFLoader.js"></script>
+  </head>
+
+  <body class="bg-gray-950 text-white min-h-screen font-sans overflow-y-auto">
+    <div class="aurora min-h-screen w-full">
+      <!-- Main container with responsive layout -->
+      <div
+        class="relative flex flex-col items-center justify-center min-h-screen w-full max-w-6xl overflow-y-auto md:flex-row"
+      >
+        <!-- Camera Section with centered title on mobile -->
+        <div
+          class="relative w-full h-[75vh] md:w-1/2 lg:w-3/5 mb-4 md:mb-0 flex flex-col items-center"
+        >
+          <div class="w-full md:hidden text-center mb-4">
+            <h1 class="text-3xl font-bold">Jewellery Try On</h1>
+          </div>
+          <canvas
+            class="output_canvas w-full h-[75vh] md:h-96 rounded-lg shadow-lg hidden-video"
+          ></canvas>
+          <video class="input_video hidden"></video>
+
+          <!-- Loading State -->
+          <div
+            id="loadingDiv"
+            class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50"
+          >
+            <p id="loadingText" class="text-2xl text-red-500">
+              Camera is loading...
+            </p>
+          </div>
+        </div>
+
+        <!-- Filters and Options section -->
+        <div
+          class="z-20 w-full md:w-1/2 lg:w-2/5 md:ml-8 flex flex-col items-start space-y-4 overflow-y-auto p-4"
+        >
+          <!-- Lipstick Color Selection with Horizontal Scroll -->
+          <div class="w-full mb-4">
+            <p class="text-lg mb-2">Select Jewellery:</p>
+            <div id="jewellery-root" class="flex overflow-x-auto space-x-2 pb-2 w-full">
+                <!-- Dynamically Generated Jewellery Options -->
+                {% for img in images_funcs %}
+                    <img class="w-20 h-20 rounded-lg cursor-pointer hover:bg-opacity-20 transition-colors" 
+                        src="{{ img.src }}" alt="Jewellery" onclick="{{ img.func }}">
+                {% endfor %}
+            </div>
+          </div>
+          <!-- Other Filters (Lipstick, Foundation, Jewellery) -->
+        </div>
+      </div>
+    </div>
+
+        <!-- Include Script -->
+        <script src="{{ url_for('ornaments.static', filename='script/mobile.js') }}"></script>
+        <!-- <script src="{{ url_for('blush.static', filename='script/blush-mesh.js') }}"></script> -->
+    
+        <script>
+            window.onload = () => {
+                document.getElementById('loadingDiv').style.display = 'none';
+                document.querySelector('.output_canvas').style.display = 'block';
+            };
+    
+            function applyFoundation() {
+                console.log('Applying Foundation filter');
+                window.location.href = '/foundation';
+            }
+    
+            function applyLipstick() {
+                console.log('Applying Lipstick filter');
+                window.location.href = '/lipstick';
+            }
+    
+            function applyBlush() {
+                console.log('Applying Blush filter');
+                window.location.href = '/blush';
+            }
+        </script>
+  </body>
+</html>

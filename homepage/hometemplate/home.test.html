@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Application Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('homepage.static',filename='style.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Spotkwik AR</h1>
+        <div class="navbar">
+            <a href="{{ url_for('lipstick.index') }}">LIPS</a>
+            <a href="{{ url_for('ornaments.index') }}">Jewwellary</a>
+            <img src="{{ url_for('homepage.static', filename='assets/model.png')}}">
+        </div>
+
+        <!-- Futuristic Status Panel -->
+        <!-- <div class="status-panel">
+            <h2>System Status</h2>
+            <div class="status-item">AR Engine: <span>Active</span></div>
+            <div class="status-item">Current Mode: <span>Simulation</span></div>
+            <div class="status-item">Network Status: <span>Stable</span></div>
+            <div class="status-item">Last Sync: <span>5 minutes ago</span></div>
+        </div> -->
+    </div>
+</body>
+</html>

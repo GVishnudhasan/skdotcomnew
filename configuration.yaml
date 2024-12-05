@@ -1,0 +1,80 @@
+service:
+
+  lipstick:
+    colors:
+      - '#8d1810'
+      - '#58111b'
+      - '#a64f36'
+      - '#d85c63'
+      - '#ba0056'
+      - '#a81c59'
+      - '#a4132b'
+      - '#f4534d'
+    icon: "https://mediapipe-spotkwik.s3.ap-south-1.amazonaws.com/assets/lipstick.png"
+  jwellery:
+    images:
+      # - https://i.ibb.co/ng2mYvH/4-removebg-preview.png
+      # - https://i.ibb.co/47jgLs8/3-removebg-preview.png
+      # - https://i.ibb.co/tb3Dxy8/1-removebg-preview.png
+      # - https://i.ibb.co/23M5f51/5-removebg-preview.png
+      # - https://i.ibb.co/YQxFrb7/6-removebg-preview.png
+      - https://mirrar-medialibrary.s3.ap-south-1.amazonaws.com/tryat-home/Necklaces/JJH07884-original/1611064564/JJH07884-original.png
+      - https://mirrar-medialibrary.s3.ap-south-1.amazonaws.com/tryat-home/Necklaces/222-Y3056/1611064570/222-Y3056.png
+      - https://mirrar-medialibrary.s3.ap-south-1.amazonaws.com/tryat-home/Necklaces/216-Y2626/1611064566/216-Y2626.png
+      - https://s3.ap-south-1.amazonaws.com/mirrar/meghnademo/Necklaces/Necklaces-28238.png
+      - https://s3.ap-south-1.amazonaws.com/mirrar/meghnademo/Necklaces/Necklaces-56539.png
+      - https://mirrar-medialibrary.s3.ap-south-1.amazonaws.com/tryat-home/Necklaces/JJH07813-original/1611064563/JJH07813-original.png
+      - https://mirrar-medialibrary.s3.ap-south-1.amazonaws.com/tryat-home/Necklaces/N0001462364/1611076501/N0001462364.png
+
+    icon: "https://mediapipe-spotkwik.s3.ap-south-1.amazonaws.com/assets/jwe.png"
+
+  blush:
+    colors:
+      - '#db6c8d'
+      - '#8d1810'
+      - '#58111b'
+      - '#a64f36'
+      - '#d85c63'
+      - '#ba0056'
+      - '#a81c59'
+      - '#a4132b'
+      - '#f4534d'
+    icon: "https://mediapipe-spotkwik.s3.ap-south-1.amazonaws.com/assets/blush.png"
+
+  foundation:
+    colors:
+      - '#e1bc9d'
+      - '#906b4d'
+      - '#5c3e2e'
+      - '#3c2708'
+      - '#8d1810'
+      - '#58111b'
+      - '#a64f36'
+      - '#d85c63'
+      - '#ba0056'
+      - '#a81c59'
+      - '#a4132b'
+      - '#f4534d'
+    icon: "https://mediapipe-spotkwik.s3.ap-south-1.amazonaws.com/assets/foun.png"
+  
+  homepage:
+    images:
+      model: "https://mediapipe-spotkwik.s3.ap-south-1.amazonaws.com/assets/model.png"
+      sec1: "https://mediapipe-spotkwik.s3.ap-south-1.amazonaws.com/assets/sec1.png"
+      sec2: "https://mediapipe-spotkwik.s3.ap-south-1.amazonaws.com/assets/sec2.png"
+      sec3: "https://mediapipe-spotkwik.s3.ap-south-1.amazonaws.com/assets/sec3.png"
+      sec4: "https://mediapipe-spotkwik.s3.ap-south-1.amazonaws.com/assets/sec4.png"
+      spotwik: "https://mediapipe-spotkwik.s3.ap-south-1.amazonaws.com/assets/spotwik.png"
+
+
+
+
+
+
+# https://s3.ap-south-1.amazonaws.com/mirrar/meghnademo/Earrings/Earrings-83868.png?timestamp=1732821272460
+# https://d1p2grtp9u8nmx.cloudfront.net/mirrar-default/Earrings/55506/1608189626/1608189626_15839055425fdb06baefdef0.png?timestamp=1732821272460
+# https://mirrar-medialibrary.s3.ap-south-1.amazonaws.com/tryat-home/Earrings/216-Y2626e/1611064516/216-Y2626e.png?timestamp=1732821272460
+# https://mirrar-medialibrary.s3.ap-south-1.amazonaws.com/tryat-home/Earrings/DSC_9065-original/1611064605/DSC_9065-original.png?timestamp=1732821272460
+# https://mirrar-medialibrary.s3.ap-south-1.amazonaws.com/tryat-home/Earrings/E0001306163/1611076349/E0001306163.png?timestamp=1732821272460
+# https://mirrar-medialibrary.s3.ap-south-1.amazonaws.com/forever-mark-ar/Earrings/ER2ASMOTIWALA/1596700663/ER2ASMOTIWALA.png?timestamp=1732821272460
+# https://mirrar-medialibrary.s3.ap-south-1.amazonaws.com/tryat-home/Earrings/e-legacy-diamond-i/1618325788/e-legacy-diamond-i.png?timestamp=1732821272460
